@@ -1,0 +1,12 @@
+#gitignore file for EPS software arch
+# Ignoring the following files
+
+#Folders
+Debug
+targetConfigs
+dvt
+.jxbrowser-data
+.metadata
+RemoteSystemsTempFiles
+.launches 
+#File specific

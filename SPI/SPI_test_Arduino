@@ -1,0 +1,24 @@
+#include <SPI.h>
+SPISettings mySettting(100000, MSBFIRST, SPI_MODE3);
+void setup()
+{
+ digitalWrite(SS, HIGH);
+ //initialises SCK, MOSI, SS as Output pins.
+ //Pulling SCK and MOSI low, and SS high. Substitute for init_GPIO function 
+ SPI.begin();
+ Serial.begin(9600);
+ delay(1000);
+  // configuring the SPI settings
+ //similar to init_SPI function 
+}
+void loop() {
+ uint8_t i = 0;
+// enable slave select 
+digitalWrite(SS, LOW);
+  SPI.beginTransaction(mySettting);
+  i = SPI.transfer(0xA6);
+  SPI.endTransaction();
+  Serial.println(i, HEX);
+  digitalWrite(SS, HIGH);
+  delay(1000);
+ }
